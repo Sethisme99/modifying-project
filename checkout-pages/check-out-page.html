@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/modifying-project/checkout-pages/css/style.css">
+    <link rel="stylesheet" href="/modifying-project/checkout-pages/css/demo.css">
+</head>
+<body class="body">
+    <main class="main-container">
+        <!-- Start DEMO HTML (Use the following code into your project)-->
+   <header id="site-header" style="display: none;">
+           <div class="container">
+               <h1 class="logo">NEWBRAND <span>[</span> <em>Shopping Cart</em> <span class="last-span is-open">]</span></h1>
+           </div>
+       </header>
+   
+       
+       <div class="container list-items">
+
+       </div>
+
+       <footer style="display: none;" id="site-footer" class="site-footer">
+            <h1 class="noItem"></h1>
+           <div class="container clearfix">
+   
+               <div class="left">
+                   <h2 class="subtotal">Subtotal: <span>163.96</span></h2>
+                   <h3 class="shipping" style="display: flex; flex-direction: column;">
+                    <span class="deliver" style="display: flex; flex-direction: row; align-items: center;">Shipping:<p>$0</p></span>
+                    <div>
+                        <div class="Second-dropdown">
+                            <div class="sec-select">
+                                <span class="sec-selected">Location</span>
+                                <div class="sec-caret"></div>
+                            </div>
+                            <ul class="sec-menu">
+                                <li class="sec-active" onclick="shippingOptions('pp')">PhnomPenh</li>
+                                <li onclick="shippingOptions('pv')">Province</li>
+                            </ul>
+                        </div>
+                        <!--
+                        <button class="pp" onclick="shippingOptions('pp')">$3:PhnomPenh</button>
+                        <button class="pv" onclick="shippingOptions('pv')">$5:Province</button>-->
+                    </div>
+
+                </h3>
+                </div>
+   
+
+               <div class="right">
+                   <h1 class="total">Total: <span>00.00</span></h1>
+                   <a class="btn goback" href="#">Checkout</a>
+               </div>
+   
+           </div>
+       </footer>
+    </main>
+    <script src="/modifying-project/product.js"></script>
+    <script src="/modifying-project/checkout-pages/checkout.js"></script>
+</body>
+</html>

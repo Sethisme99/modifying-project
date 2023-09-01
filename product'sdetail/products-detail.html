@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Detail</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="/modifying-project/product'sdetail/detail.css">
+</head>
+<body>
+  <header class="h-header">
+    <a class="logo" href="/modifying-project/myOnlineShop.html">NEWBRAND</a>
+    <nav class="responsive-nav" id="openNav">
+        <li class="s"><a href="">Home</a></li>
+        <li class="s"><a href="">Store</a></li>
+        <li class="s"><a href="">About</a></li>
+        <li class="s"><a href="">Blog</a></li>
+        <a href="/modifying-project/checkout-pages/check-out-page.html" class="shopping s">
+          <img class="s" src="/modifying-project/images/shopping.svg" alt="">
+          <span class="quantity s" id="quantity">0</span>
+          </a>
+    </nav>
+    <div class="show">
+    <a style="font-size: x-large; color: black; font-weight: 600; text-decoration: none; z-index: 10000;" href="javascript:void(0);" class="icon icons" onclick="myFunction()">&#9776;</a>
+    <a href="/modifying-project/checkout-pages/check-out-page.html" class="shopping s">
+      <img class="s" src="/modifying-project/images/shopping.svg" alt="">
+      <span class="quantity s" id="quantity">0</span>
+      </a>
+    </div>
+</header>
+
+     <section class="myHeader">
+          <div class="container flex">
+          </div>
+        </section>
+
+        <script src="/modifying-project/product.js"></script>
+
+        <script>
+          
+          let container = document.querySelector('.container');
+          let cartDetail = JSON.parse(localStorage.getItem("details")) || [];
+          console.log(cartDetail);
+          
+          function img(anything) {
+            document.querySelector('.slide').src = anything;
+          }
+      /*
+          function change(change) {
+            const line = document.querySelector('.home');
+            line.style.background = change;
+          }*/
+
+          let getDetails = ()=>{
+            container.innerHTML = "";
+            if(cartDetail.length !== 0){
+              return(container.innerHTML = cartDetail
+                    .map((x)=>{
+                      let {id, item, code} = x;
+                      let search = products.find((y)=>y.id === id) || [];
+                      return`
+              <div class="left">
+              <div class="main_image">
+                <img src="/modifying-project/product'sdetail/imgs/${search.option.one}" class="slide changes">
+              </div>
+              <div class="option flex">
+                <img class="change" src="/modifying-project/product'sdetail/imgs/${search.option.one}" onmouseover="img('imgs/${search.option.one}')">
+                <img class="ops1" src="/modifying-project/product'sdetail/imgs/${search.option.two}" onmouseover="img('imgs/${search.option.two}')">
+                <img class="ops2" src="/modifying-project/product'sdetail/imgs/${search.option.three}" onmouseover="img('imgs/${search.option.three}')">
+                <img class="ops3" src="/modifying-project/product'sdetail/imgs/${search.option.four}" onmouseover="img('imgs/${search.option.four}')">
+                <img class="ops4" src="/modifying-project/product'sdetail/imgs/${search.option.five}" onmouseover="img('imgs/${search.option.five}')">
+                <img class="ops5" src="/modifying-project/product'sdetail/imgs/${search.option.six}" onmouseover="img('imgs/${search.option.six}')">
+              </div>
+            </div>
+            <div class="right">
+              <div class="nameAndStar" style="display: inline-block;">
+                <h3>${search.name}</h3>
+              <div class="ratting-container">
+                <img class="product-ratting" src="/modifying-project/product'sdetail/images/ratings/rating-${search.rating.stars * 10}.png">
+                <div class="ratting-count link-primary">
+                    ${search.rating.count}
+                  </div>
+              </div>
+              </div>
+              <h4> <small>$</small>${search.price}</h4>
+              <p>${search.description}</p>
+              <h5>Choose colors:</h5>
+              <div class="color flex1" style="display: flex; flex-wrap: wrap;">
+                <span class="colors color-white active-color"><img src="/modifying-project/product'sdetail/imgs/${search.option.one}"></span>
+                <span class="colors color-yellow"><img src="/modifying-project/img/option-switch/${search.yellowColor.ops2}"></span>
+                <span class="colors color-gray"><img src="/modifying-project/img/option-switch/${search.grayColor.ops1}"></span>
+                <span class="colors color-black"><img src="/modifying-project/img/option-switch/${search.blackColor.ops1}"></span>
+                <span class="colors color-blue"><img src="/modifying-project/img/option-switch/${search.blueColor.ops1}"></span>
+                <span class="colors color-red"><img src="/modifying-project/img/option-switch/${search.redColor.ops1}"></span>
+              </div>
+              <div>
+                <p style="font-size: 15px;
+                    font-family: 'sans-serif';
+                    font-weight: 300;
+                    color: black;">Size:</p>
+                <div style="margin:0;" class="Dropdown">
+                <div style="width:170px;" class="Select">
+                <span class="selected">Choose an option</span>
+                <div class="caret"></div>
+                </div>
+                <ul class="Menu">
+                <li class="active" onclick="sizeXl('click', ${code})">Xl:12</li>
+                <li onclick="sizeL('click', ${code})">L:11</li>
+                <li onclick="changeSizeM('click', ${code})">M:10</li>
+                </ul>
+                </div>
+              </div>
+              <button onclick="addToCart(${id})">Add to cart</button>
+              </div>
+            </div>`;
+           }));
+            }else{
+              container.innerHTML = "";
+            }
+          }
+          getDetails();
+          let cart = JSON.parse(localStorage.getItem("CART")) || [];
+          let arrShipping = JSON.parse(localStorage.getItem('deliver')) ||{
+              pp: 0,
+              pv: 0,
+              totalShippingP: 0,
+              totalShippingV: 0,
+              total: 0,
+          }
+
+            //changeColor function:
+            
+            const COLOR_BTNS = document.querySelectorAll('.colors');
+            COLOR_BTNS.forEach(colors =>{
+              colors.addEventListener("click", ()=>{
+                let colorNameClass = colors.className;
+                if(!colors.classList.contains('active-color')){
+                  let colorNames = colorNameClass.slice(colorNameClass.indexOf('-') + 1, colorNameClass.length);
+                  resetActiveBtns();
+                  colors.classList.add('active-color');
+                  setNewColor(colorNames);
+                }
+                //console.log(colorNameClass);
+              });
+            });
+
+            function resetActiveBtns(){
+              COLOR_BTNS.forEach(colors =>{
+                colors.classList.remove('active-color');
+              });
+            }
+
+            function setNewColor(colors){ 
+              cartDetail.forEach((items)=>{
+                let z = items;
+              // let x = document.querySelector('.changes').src = `/modifying-project/img/option-switch/colors/${colors}.webp`;
+                //let x = document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items. changeColor.yellow}`;   
+                let changes = document.querySelector('.changes');            
+                let ops1 = document.querySelector('.change');
+                let ops2 = document.querySelector('.ops1');
+                let ops3 = document.querySelector('.ops2');
+                let ops4 = document.querySelector('.ops3');
+                let ops5 = document.querySelector('.ops4');
+                let ops6 = document.querySelector('.ops5');
+                //switch Images option:
+                if(colors === 'yellow'){
+                //save color section to cart:
+                  items.pickColor = 'yellow';
+                  items.image = items.yellowColor.ops1;
+                //preview color section:
+                changes.src = `/modifying-project/img/option-switch/${items.yellowColor.ops1}`;
+                ops1.src =`/modifying-project/img/option-switch/${items.yellowColor.ops2}`;
+                ops2.src =`/modifying-project/img/option-switch/${items.yellowColor.ops3}`;
+                ops3.src =`/modifying-project/img/option-switch/${items.yellowColor.ops4}`;
+                ops4.src =`/modifying-project/img/option-switch/${items.yellowColor.ops5}`;
+                ops5.src =`/modifying-project/img/option-switch/${items.yellowColor.ops6}`;
+                ops6.src =`/modifying-project/img/option-switch/${items.yellowColor.ops7}`;
+                //switch mouseover:
+                  //shortHand:
+                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops2}`;
+                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops3}`;
+                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops4}`;
+                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops5}`;
+                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops6}`;
+                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops7}`;
+                  //longHand:
+                // ops1.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops2}`});
+                // ops2.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops3}`});
+                //ops3.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops4}`});
+                //ops4.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops5}`});
+                //ops5.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops6}`});
+                //ops6.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops7}`});
+                }else if(colors === 'white'){
+                //save color section to cart:
+                  items.pickColor = 'white';
+                  items.image = items.option.one;
+                //preview color section:
+                changes.src = `/modifying-project/product'sdetail/imgs/${items.option.one}`;
+                ops1.src =`/modifying-project/product'sdetail/imgs/${items.option.one}`;
+                ops2.src =`/modifying-project/product'sdetail/imgs/${items.option.two}`;
+                ops3.src =`/modifying-project/product'sdetail/imgs/${items.option.three}`;
+                ops4.src =`/modifying-project/product'sdetail/imgs/${items.option.four}`;
+                ops5.src =`/modifying-project/product'sdetail/imgs/${items.option.five}`;
+                ops6.src =`/modifying-project/product'sdetail/imgs/${items.option.six}`;
+                //switch mouseover: 
+                ops1.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.one}`;
+                ops2.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.two}`;
+                ops3.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.three}`;
+                ops4.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.four}`;
+                ops5.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.five}`;
+                ops6.onmouseover =()=>document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.six}`;
+                }else if(colors === 'gray'){
+                  //save color section to cart:
+                  items.pickColor = 'gray';
+                  items.image = items.grayColor.ops1;
+                //preview color section:
+                changes.src = `/modifying-project/img/option-switch/${items.grayColor.ops1}`;
+                ops1.src =`/modifying-project/img/option-switch/${items.grayColor.ops2}`;
+                ops2.src =`/modifying-project/img/option-switch/${items.grayColor.ops3}`;
+                ops3.src =`/modifying-project/img/option-switch/${items.grayColor.ops4}`;
+                ops4.src =`/modifying-project/img/option-switch/${items.grayColor.ops5}`;
+                ops5.src =`/modifying-project/img/option-switch/${items.grayColor.ops6}`;
+                ops6.src =`/modifying-project/img/option-switch/${items.grayColor.ops7}`;
+                //mouseOver Event:
+                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops2}`;
+                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops3}`;
+                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops4}`;
+                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops5}`;
+                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops6}`;
+                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops7}`;
+                }else if(colors === 'black'){
+                //save color section to cart:
+                  items.pickColor = 'black';
+                  items.image = items.blackColor.ops1;
+                //preview color section:
+                changes.src =`/modifying-project/img/option-switch/${items.blackColor.ops1}`;
+                ops1.src =`/modifying-project/img/option-switch/${items.blackColor.ops2}`;
+                ops2.src =`/modifying-project/img/option-switch/${items.blackColor.ops3}`;
+                ops3.src =`/modifying-project/img/option-switch/${items.blackColor.ops4}`;
+                ops4.src =`/modifying-project/img/option-switch/${items.blackColor.ops5}`;
+                ops5.src =`/modifying-project/img/option-switch/${items.blackColor.ops6}`;
+                ops6.src =`/modifying-project/img/option-switch/${items.blackColor.ops7}`;
+                //mouseOver Event:
+                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops2}`;
+                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops3}`;
+                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops4}`;
+                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops5}`;
+                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops6}`;
+                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops7}`;
+                }else if(colors === 'blue'){
+                  //save color section to cart:
+                  items.pickColor = 'blue';
+                  items.image = items.blueColor.ops1;
+                //preview color section:
+                changes.src = `/modifying-project/img/option-switch/${items.blueColor.ops1}`;
+                ops1.src =`/modifying-project/img/option-switch/${items.blueColor.ops2}`;
+                ops2.src =`/modifying-project/img/option-switch/${items.blueColor.ops3}`;
+                ops3.src =`/modifying-project/img/option-switch/${items.blueColor.ops4}`;
+                ops4.src =`/modifying-project/img/option-switch/${items.blueColor.ops5}`;
+                ops5.src =`/modifying-project/img/option-switch/${items.blueColor.ops6}`;
+                ops6.src =`/modifying-project/img/option-switch/${items.blueColor.ops7}`;
+                //mouseOver Event:
+                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops2}`;
+                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops3}`;
+                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops4}`;
+                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops5}`;
+                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops6}`;
+                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops7}`;
+                }else if(colors === 'red'){
+                //save color section to cart:
+                  items.pickColor = 'red';
+                  items.image = items.redColor.ops1;
+                //preview color section:
+                changes.src = `/modifying-project/img/option-switch/${items.redColor.ops1}`;
+                ops1.src =`/modifying-project/img/option-switch/${items.redColor.ops2}`;
+                ops2.src =`/modifying-project/img/option-switch/${items.redColor.ops3}`;
+                ops3.src =`/modifying-project/img/option-switch/${items.redColor.ops4}`;
+                ops4.src =`/modifying-project/img/option-switch/${items.redColor.ops5}`;
+                ops5.src =`/modifying-project/img/option-switch/${items.redColor.ops6}`;
+                ops6.src =`/modifying-project/img/option-switch/${items.redColor.ops7}`;
+                //mouseOver Event:
+                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops2}`;
+                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops3}`;
+                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops4}`;
+                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops5}`;
+                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops6}`;
+                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops7}`;
+                }
+              })
+            };
+            
+          //add to bag function:
+          //shipping function:
+          function addToCart(id){
+            let pp = arrShipping.pp;
+            let pv = arrShipping.pv;
+            let x = 0;
+            if(pp !== 0){
+              x = 3
+            }else if(pv !== 0){
+              x = 5
+            };
+
+            //add cart function:
+            if(cart.some((item)=> item.id === id)){
+              //changeNumberOfUnits("plus", id);
+              const item = cartDetail.find((product)=> product.id === id);
+              let randomCode = Math.floor(1000 + Math.random() * 9000);
+              cart.push({...item, numberOfUnits: 1, code: randomCode, x,});
+            }else{
+              const item = cartDetail.find((product)=> product.id === id);
+              cart.push({...item, numberOfUnits: 1, x,});
+            };
+            renderSubtotal();
+            localStorage.setItem("CART", JSON.stringify(cart));
+          }
+
+    function renderSubtotal(){
+    let quantity = 0;
+    cart.forEach((item)=>{
+      quantity += item.numberOfUnits;
+    });
+    document.getElementById('quantity').innerText = `${quantity}`;
+    document.querySelector(".show span").innerText = `${quantity}`;
+    localStorage.setItem("CART", JSON.stringify(cart));
+}
+renderSubtotal()
+
+//change size products:
+function changeSizeM(action, code){
+    cartDetail.forEach((item)=>{
+      item.size = 'M:10';
+      console.log(cartDetail);
+    })
+   // localStorage.setItem("CART", JSON.stringify(cart));
+};
+function sizeL(action, code){
+    cartDetail.forEach((item)=>{
+      item.size = 'L:11';
+      console.log(cartDetail);
+    })
+   // localStorage.setItem("CART", JSON.stringify(cart));
+};
+function sizeXl(action, code){
+    cartDetail.forEach((item)=>{
+      item.size = 'XL:12';
+      console.log(cartDetail);
+    })
+   // localStorage.setItem("CART", JSON.stringify(cart));
+}
+
+
+//dropDown change size style:
+    function sizeOption(){
+        const dropDowns = document.querySelectorAll('.Dropdown');
+        dropDowns.forEach(dropdown=>{
+            //get inner elements from each dropdown
+            const select = dropdown.querySelector('.Select');
+            const caret = dropdown.querySelector('.caret');
+            const menu = dropdown.querySelector('.Menu');
+            const options = dropdown.querySelectorAll('.Menu li');
+            const selected = dropdown.querySelector('.selected')
+        
+            select.addEventListener('click', ()=>{
+                select.classList.toggle('Select-clicked');
+                caret.classList.toggle('caret-rotate');
+                menu.classList.toggle('Menu-open');
+            });
+            //loop through all option element:
+            options.forEach(option=>{
+                option.addEventListener('click',()=>{
+                    selected.innerText = option.innerText;
+                    select.classList.remove('Select-clicked');
+                    caret.classList.remove('caret-rotate');
+                    menu.classList.remove('Menu-open');
+                    options.forEach(option=>{
+                        option.classList.remove('active');
+                    });
+                    option.classList.add('active');
+                });
+            });
+        });
+    };
+    sizeOption();
+
+              //navbar dropdown:
+              function myFunction(){
+                let n = document.getElementById("openNav");
+                if(n.className === "responsive-nav"){
+                  n.className += " responsive";
+                }else{
+                  n.className = "responsive-nav";
+                }
+
+              }
+
+        //change product's quantities function:
+          /*
+          function changeNumberOfUnits(action, id){
+            cart = cart.map((item)=>{
+              let numberOfUnits = item.numberOfUnits;
+              if(item.id === id){
+                if(action === "minus" && numberOfUnits > 1){
+                  numberOfUnits--;
+                }else if(action === "plus" && numberOfUnits < item.instock){
+                  numberOfUnits++;
+                }
+              }
+              return{
+                ...item,
+                numberOfUnits,
+              }
+            });
+            localStorage.setItem("CART", JSON.stringify(cart));
+          }*/
+              /*
+                <span onclick="changeNumberOfUnits('minus', ${search.id})">-</span>
+                <label class="count"></label>
+                <span onclick="changeNumberOfUnits('plus', ${search.id})">+</span>
+              */
+
+             
+        </script>
+</body>
+</html>
