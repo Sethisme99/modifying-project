@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <script src="/modifying-project/animation.js"></script>
 </head>
-<body id="body">
+<body class="body" id="body">
     <!--
     <header class="h-header">
         <a class="logo" href="">NEWBRAND</a>
@@ -109,7 +109,7 @@
 
     <!--slide testing-->
     <div class="splide">
-        <div class="title1" style="text-align: start; margin-left: 30px;">Popular Right Now</div>
+        <div class="title2">Popular Right Now</div>
         <div class="splide__track">
             <div class="splide__list">
                 <div class="splide__slide">
@@ -176,16 +176,20 @@
     perPage: 3,
     gap    : '1rem',
     breakpoints: { 
-
+        830: {
+        perPage: 2,
+        gap    : '.1rem',
+        height : '25rem',
+        },
         640: {
         perPage: 2,
-        gap    : '.7rem',
-        height : '6rem',
+        gap    : '.1rem',
+        height : '25rem',
         },
         480: {
         perPage: 1,
         gap    : '.7rem',
-        height : '6wrem',
+        height : '25rem',
         },
     },
     } );
