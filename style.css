@@ -743,6 +743,9 @@ nav a:hover{
     .carousel{
         height: 350px;
     }
+    .listx{
+        grid-template-columns: none;
+    }
 }
 
 @media only screen and (max-width: 600px){
