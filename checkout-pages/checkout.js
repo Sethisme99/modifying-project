@@ -28,23 +28,23 @@ let generateCartItems = ()=>{
         <header>
             <a>
                 <img src="/modifying-project/img/${x.image}">
-                <h3 class="remove" onclick="removeNumberOfUnits(${code})">Remove product</h3>
+                <h3 class="remove" onclick="removeNumberOfUnits(${code})">Remove</h3>
             </a>
         </header>
 
-        <div class="content">
+        <div class="content content-scroll">
 
-            <h1 style="padding: 10px">${search.name}</h1>
+            <h1>${search.name}</h1>
 
-            <p style="font-size: 12px;
+            <p style="
             line-height: 1.3;
             padding: 5px;"
             >${search.description}</p>
-            <div class="displayNone type small" class="product-size-container" style="top: 0px; padding: 0">
-            <h3 class="sizeDisplay" style="padding: 0 1em; font-size: 15px; font-weight: normal; padding-top: 1em; font-family: monospace;">Size:</h3>
+            <div class="type small" class="product-size-container" style="top: 0px; padding: 0">
+            <h3 class="sizeDisplay">Size:</h3>
             <div class="Dropdown">
             <div class="Select">
-            <span class="selected" style="font-weight: 600;">${x.size}</span>
+            <span class="selected">${x.size}</span>
             <div class="caret"></div>
             </div>
             <ul class="Menu">
@@ -55,7 +55,7 @@ let generateCartItems = ()=>{
             </div>
           </div>
         </div>
-        <footer class="displayNone content">
+        <footer class="content">
             <span class="qt-minus minus" onclick="changeNumberOfUnits('minus', ${code})">-</span>
             <span class="qt count">${x.numberOfUnits}</span>
             <span class="qt-plus plus" onclick="changeNumberOfUnits('plus', ${code})">+</span>
@@ -68,8 +68,7 @@ let generateCartItems = ()=>{
                 $${search.price}
             </h2>
         </footer>
-    </article> `;
-    }));
+    </article>`}).join(""))
     }else{
         let noItem = document.querySelector('.noItem');
         let goback = document.querySelector('.goback');
