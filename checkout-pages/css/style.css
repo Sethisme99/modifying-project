@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
 body {
 	background: #eee;
 	margin: 0;
@@ -5,28 +7,52 @@ body {
 	overflow-x: hidden;
 }
 
+.main-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0em;
+}
+
+
 .clearfix {
   content: "";
   display: table;
   clear: both;	
 }
 
-#site-header, #site-footer {
+
+.header-color{
+	background-color: white;
+	margin: 20px 0;
+}
+.site-footer {
 	background: #fff;
 }
 
-#site-header {
-	margin: 0 0 30px 0;
+.site-header {
+	width: 100%;
+	height: 100%;
+	text-align: start;
+}
+.logo span{
+	font-weight: 300;
+}
+.logo em{
+	font-size: 15px;
 }
 
-#site-header h1 {
-	font-size: 31px;
-	font-weight: 300;
+.site-header a {
+	font-size: clamp(15px, 3vw, 32px);
+	font-weight: 400;
 	padding: 40px 0;
 	position: relative;
-	margin: 0;
+	margin-left: 10px;
+	text-decoration: none;
+	color: black;
 }
-
+.product header h3
 a {
 	color: #000;
 	text-decoration: none;
@@ -39,7 +65,7 @@ a {
 }
 
 a:hover {
-	color: #53b5aa;
+	color: gray;
 }
 
 #site-header h1 span {
@@ -149,8 +175,9 @@ a:hover {
 }
 
 .product header h3 {
-	background: #ff0500;
-	color: #fff;
+	font-family:fantasy;
+	background: #E5E5E5;
+	color: rgb(95, 95, 95);
 	font-size: 22px;
 	font-weight: 300;
 	line-height: 49px;
@@ -264,13 +291,14 @@ a:hover {
 
 #site-footer {
 	margin: 30px 0 0 0;
+	width: 80%;
 }
 
 #site-footer {
 	padding: 40px;
 }
 
-#site-footer h1 {
+.site-footer h1 {
 	background: #fcfcfc;
 	border: 1px solid #ccc;
 	border-style: none none solid none;
@@ -281,13 +309,17 @@ a:hover {
 	text-align: center;
 }
 
-#site-footer h2 {
+.site-footer h2 {
 	font-size: 24px;
 	font-weight: 300;
 	margin: 10px 0 0 0;
+	font-family: 'Kanit', sans-serif;
+}
+.deliver{
+	font-family: 'Kanit', sans-serif;
 }
 
-#site-footer h3 {
+.site-footer h3 {
 	font-size: 20px;
 	font-weight: 300;
 	margin: 5px 0;
@@ -364,3 +396,14 @@ a:hover {
 	text-align: center;
 }
 
+@media only screen and (max-width: 355px){
+	.site-footer h2{
+		font-size: 15px;
+		font-weight: 500;
+	}
+	.site-footer h3{
+		font-weight: 400;
+	   font-size: 12px;
+	}
+    }
+  
