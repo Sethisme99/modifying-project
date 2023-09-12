@@ -64,12 +64,12 @@
                 <img src="/modifying-project/product'sdetail/imgs/${search.option.one}" class="slide changes">
               </div>
               <div class="option flex">
-                <img class="change" src="/modifying-project/product'sdetail/imgs/${search.option.one}" onmouseover="img('imgs/${search.option.one}')">
-                <img class="ops1" src="/modifying-project/product'sdetail/imgs/${search.option.two}" onmouseover="img('imgs/${search.option.two}')">
-                <img class="ops2" src="/modifying-project/product'sdetail/imgs/${search.option.three}" onmouseover="img('imgs/${search.option.three}')">
-                <img class="ops3" src="/modifying-project/product'sdetail/imgs/${search.option.four}" onmouseover="img('imgs/${search.option.four}')">
-                <img class="ops4" src="/modifying-project/product'sdetail/imgs/${search.option.five}" onmouseover="img('imgs/${search.option.five}')">
-                <img class="ops5" src="/modifying-project/product'sdetail/imgs/${search.option.six}" onmouseover="img('imgs/${search.option.six}')">
+                <img class="change" src="/modifying-project/product'sdetail/imgs/${search.option.one}" onclick="img('imgs/${search.option.one}')">
+                <img class="ops1" src="/modifying-project/product'sdetail/imgs/${search.option.two}" onclick="img('imgs/${search.option.two}')">
+                <img class="ops2" src="/modifying-project/product'sdetail/imgs/${search.option.three}" onclick="img('imgs/${search.option.three}')">
+                <img class="ops3" src="/modifying-project/product'sdetail/imgs/${search.option.four}" onclick="img('imgs/${search.option.four}')">
+                <img class="ops4" src="/modifying-project/product'sdetail/imgs/${search.option.five}" onclick="img('imgs/${search.option.five}')">
+                <img class="ops5" src="/modifying-project/product'sdetail/imgs/${search.option.six}" onclick="img('imgs/${search.option.six}')">
               </div>
             </div>
             <div class="right">
@@ -177,12 +177,12 @@
                 ops6.src =`/modifying-project/img/option-switch/${items.yellowColor.ops7}`;
                 //switch mouseover:
                   //shortHand:
-                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops2}`;
-                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops3}`;
-                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops4}`;
-                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops5}`;
-                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops6}`;
-                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops7}`;
+                ops1.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops2}`;
+                ops2.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops3}`;
+                ops3.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops4}`;
+                ops4.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops5}`;
+                ops5.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops6}`;
+                ops6.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.yellowColor.ops7}`;
                   //longHand:
                 // ops1.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops2}`});
                 // ops2.addEventListener("mouseover",()=>{document.querySelector('.changes').src =`/modifying-project/img/option-switch/${items.redColor.ops3}`});
@@ -203,12 +203,12 @@
                 ops5.src =`/modifying-project/product'sdetail/imgs/${items.option.five}`;
                 ops6.src =`/modifying-project/product'sdetail/imgs/${items.option.six}`;
                 //switch mouseover: 
-                ops1.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.one}`;
-                ops2.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.two}`;
-                ops3.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.three}`;
-                ops4.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.four}`;
-                ops5.onmouseover =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.five}`;
-                ops6.onmouseover =()=>document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.six}`;
+                ops1.onclick =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.one}`;
+                ops2.onclick =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.two}`;
+                ops3.onclick =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.three}`;
+                ops4.onclick =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.four}`;
+                ops5.onclick =()=> document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.five}`;
+                ops6.onclick =()=>document.querySelector('.changes').src =`/modifying-project/product'sdetail/imgs/${items.option.six}`;
                 }else if(colors === 'gray'){
                   //save color section to cart:
                   items.pickColor = 'gray';
@@ -222,12 +222,12 @@
                 ops5.src =`/modifying-project/img/option-switch/${items.grayColor.ops6}`;
                 ops6.src =`/modifying-project/img/option-switch/${items.grayColor.ops7}`;
                 //mouseOver Event:
-                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops2}`;
-                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops3}`;
-                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops4}`;
-                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops5}`;
-                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops6}`;
-                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops7}`;
+                ops1.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops2}`;
+                ops2.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops3}`;
+                ops3.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops4}`;
+                ops4.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops5}`;
+                ops5.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops6}`;
+                ops6.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.grayColor.ops7}`;
                 }else if(colors === 'black'){
                 //save color section to cart:
                   items.pickColor = 'black';
@@ -241,12 +241,12 @@
                 ops5.src =`/modifying-project/img/option-switch/${items.blackColor.ops6}`;
                 ops6.src =`/modifying-project/img/option-switch/${items.blackColor.ops7}`;
                 //mouseOver Event:
-                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops2}`;
-                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops3}`;
-                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops4}`;
-                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops5}`;
-                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops6}`;
-                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops7}`;
+                ops1.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops2}`;
+                ops2.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops3}`;
+                ops3.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops4}`;
+                ops4.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops5}`;
+                ops5.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops6}`;
+                ops6.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blackColor.ops7}`;
                 }else if(colors === 'blue'){
                   //save color section to cart:
                   items.pickColor = 'blue';
@@ -260,12 +260,12 @@
                 ops5.src =`/modifying-project/img/option-switch/${items.blueColor.ops6}`;
                 ops6.src =`/modifying-project/img/option-switch/${items.blueColor.ops7}`;
                 //mouseOver Event:
-                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops2}`;
-                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops3}`;
-                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops4}`;
-                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops5}`;
-                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops6}`;
-                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops7}`;
+                ops1.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops2}`;
+                ops2.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops3}`;
+                ops3.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops4}`;
+                ops4.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops5}`;
+                ops5.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops6}`;
+                ops6.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.blueColor.ops7}`;
                 }else if(colors === 'red'){
                 //save color section to cart:
                   items.pickColor = 'red';
@@ -279,12 +279,12 @@
                 ops5.src =`/modifying-project/img/option-switch/${items.redColor.ops6}`;
                 ops6.src =`/modifying-project/img/option-switch/${items.redColor.ops7}`;
                 //mouseOver Event:
-                ops1.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops2}`;
-                ops2.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops3}`;
-                ops3.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops4}`;
-                ops4.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops5}`;
-                ops5.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops6}`;
-                ops6.onmouseover =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops7}`;
+                ops1.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops2}`;
+                ops2.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops3}`;
+                ops3.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops4}`;
+                ops4.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops5}`;
+                ops5.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops6}`;
+                ops6.onclick =()=>document.querySelector('.changes').src = `/modifying-project/img/option-switch/${items.redColor.ops7}`;
                 }
               })
             };
