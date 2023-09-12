@@ -189,7 +189,7 @@ nav a:hover{
    p {
      margin: 0 2px;
      line-height: 30px;
-     font-size: clamp(15px, 1.5vw, 18px);
+     font-size: clamp(15px, 2vw, 18px);
      font-weight: 400;
      text-align: start;
      font-family: ui-monospace;
@@ -480,6 +480,7 @@ nav a:hover{
   }
   .right{
     justify-content: space-evenly;
+    gap: 20px;
   }
   .color span{
     margin-top: 0;
@@ -493,6 +494,14 @@ nav a:hover{
     object-fit: cover;
   }
  }
+
+@media only screen and (max-width: 500px){
+  .container{
+    grid-template-rows: 1fr;
+  }
+}
+
+
  /*
 
  @media only screen and (max-width:1045px) {
