@@ -165,12 +165,31 @@ nav a:hover{
      object-fit: cover;
    }
 
-   .option:focus, .option :active, .option .active, .option :focus:active {
-    background-image: none;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+   .option{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
+  .option:focus {
+      outline: none !important;
+  }
+  .flex1{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .flex1:focus {
+    outline: none !important;
+  }
+   
    
    
 
