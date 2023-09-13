@@ -163,8 +163,15 @@ nav a:hover{
    .option img {
      width: 100px;
      object-fit: cover;
-      -webkit-tap-highlight-color: transparent;
    }
+
+   .option:focus, .option :active, .option .active, .option :focus:active {
+    background-image: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+   
    
 
    h3 {
