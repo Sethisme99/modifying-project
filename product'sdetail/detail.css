@@ -163,6 +163,7 @@ nav a:hover{
    .option img {
      width: 100px;
      object-fit: cover;
+     user-select: none;
    }
    
 
